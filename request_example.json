@@ -1,0 +1,15 @@
+[
+  {
+    "name": "GetOrder",
+    "dependencies": [
+      {
+        "dependency": "GetUser",
+        "variables": ["name", "age"]
+      },
+      {
+        "dependency": "GetEmail",
+        "variables": ["email"]
+      }
+    ]
+  }
+]
