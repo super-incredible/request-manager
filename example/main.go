@@ -2,7 +2,8 @@ package main
 
 import (
 	"fmt"
-	"time"
+
+	"github.com/super-incredible/request-manager/example/task"
 )
 
 type RequestDependency struct {
@@ -17,15 +18,20 @@ type Request struct {
 
 type Requests []Request
 
-func asyncSimulation(seconds int) {
-	time.Sleep(time.Duration(seconds) * time.Second)
-}
-
 func main() {
-	seconds := 3
-	fmt.Printf("Waiting request for %ss... ", fmt.Sprint(seconds))
+	secondAsync := 3
+	fmt.Printf("Waiting request for %ss... ", fmt.Sprint(secondAsync))
 
-	asyncSimulation(seconds)
+	task.AsyncExecApiCalls()
+
+	fmt.Println("--------------")
+
+	secondSync := 5
+	fmt.Printf("Waiting request for %ss... ", fmt.Sprint(secondSync))
+
+	task.SyncExecApiCalls()
+
+	fmt.Println("--------------")
 
 	fmt.Println("Done")
 }
